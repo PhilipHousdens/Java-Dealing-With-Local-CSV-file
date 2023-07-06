@@ -14,9 +14,8 @@ public class UniData {
         this.region = region;
         this.logo = logo;
 
-        if (score.equals("N/A")) {//If the score is "N/A". Change to 0
-            setScore("0");
-        }
+        setZeroScore(score);
+
     }
 
     // Getter and Setter 
@@ -75,6 +74,11 @@ public class UniData {
        return score;
    }
 
+   public void  setZeroScore(String score) {
+       if (score.equals("N/A")) {//If the score is "N/A". Change to 0
+           setScore("0");
+       }
+   }
 
 
    //TOString
