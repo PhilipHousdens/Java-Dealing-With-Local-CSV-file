@@ -50,6 +50,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // Remove rank that is not from the list (401-440)
 
         // Print the UniData objects
         for (UniData uniData : v) {

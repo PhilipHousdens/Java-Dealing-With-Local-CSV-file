@@ -1,4 +1,6 @@
 import javax.sound.sampled.ReverbType;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UniData {
     private String uni, link, country, city, region, logo, year, rankDisplay, score;
@@ -16,6 +18,7 @@ public class UniData {
 
         roundingScore(score);
         setZeroScore(score);
+        CatRank(rankDisplay);
 
 
     }
@@ -90,6 +93,12 @@ public class UniData {
        System.out.println("Invalid");
    }
 
+   }
+   // No.3
+   public void CatRank(String rankDisplay) {
+       if (rankDisplay.contains("-")) {
+           setRankDisplay("N/A");
+       }
    }
 
 
