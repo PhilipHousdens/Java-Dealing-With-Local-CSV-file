@@ -6,13 +6,17 @@ public class UniData {
     public UniData(String year, String rankDisplay, String uni, String score, String link, String country, String city, String region, String logo) {
         this.year = year;
         this.rankDisplay = rankDisplay;
-        this.uni = uni;
+        this.uni = uni.toLowerCase(); //Turn to lower case
         this.score = score;
         this.link = link;
         this.country = country;
         this.city = city;
         this.region = region;
         this.logo = logo;
+
+        if (score.equals("N/A")) {//If the score is "N/A". Change to 0
+            setScore("0");
+        }
     }
 
     // Getter and Setter 
@@ -71,12 +75,14 @@ public class UniData {
        return score;
    }
 
+
+
    //TOString
 
    @Override
    public String toString() {
        // TODO Auto-generated method stub
-       return getYear() + " " + getRankDisplay() + " " + getUni().toLowerCase() + " " + getScore() + " " + getLink() + " " + getCountry() + " " + getCity()+ " " + getRegion() + " " + getLogo();
+       return getYear() + " " + getRankDisplay() + " " + getUni() + " " + getScore() + " " + getLink() + " " + getCountry() + " " + getCity()+ " " + getRegion() + " " + getLogo();
    }
 
    public String toCSVString() {
