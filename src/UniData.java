@@ -76,7 +76,7 @@ public class UniData {
    @Override
    public String toString() {
        // TODO Auto-generated method stub
-       return getYear() + " " + getRankDisplay() + " " + getUni() + " " + getScore() + " " + getLink() + " " + getCountry() + " " + getCity()+ " " + getRegion() + " " + getLogo();
+       return getYear() + " " + getRankDisplay() + " " + getUni().toLowerCase() + " " + getScore() + " " + getLink() + " " + getCountry() + " " + getCity()+ " " + getRegion() + " " + getLogo();
    }
 
    public String toCSVString() {
