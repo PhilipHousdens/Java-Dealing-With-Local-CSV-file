@@ -14,7 +14,9 @@ public class UniData {
         this.region = region;
         this.logo = logo;
 
+        roundingScore(score);
         setZeroScore(score);
+
 
     }
 
@@ -78,6 +80,16 @@ public class UniData {
        if (score.equals("N/A")) {//If the score is "N/A". Change to 0
            setScore("0");
        }
+   }
+
+   public void roundingScore(String score) { try {
+       float scoreValue = Float.parseFloat(score);
+
+       setScore(String.valueOf(Math.round((scoreValue))));
+   } catch (Exception e) {
+       System.out.println("Invalid");
+   }
+
    }
 
 
