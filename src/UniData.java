@@ -1,8 +1,12 @@
 import javax.sound.sampled.ReverbType;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UniData {
+public class UniData implements Comparable<UniData>{ //Implementing Comparable, so that if can compare the list
     private String uni, link, country, city, region, logo, year, rankDisplay, score;
 
     public UniData(String year, String rankDisplay, String uni, String score, String link, String country, String city, String region, String logo) {
@@ -84,23 +88,22 @@ public class UniData {
            setScore("0");
        }
    }
-
+    // Rounding the score
    public void roundingScore(String score) { try {
-       float scoreValue = Float.parseFloat(score);
+       float scoreValue = Float.parseFloat(score); // Turn String value, to Float number.
 
-       setScore(String.valueOf(Math.round((scoreValue))));
+       setScore(String.valueOf(Math.round((scoreValue)))); //Using Math.round((soreValue)) and wrap around with String.valueOf to make scoreValue back to String again.
    } catch (Exception e) {
-       System.out.println("Invalid");
+       System.out.println("Invalid"); //Print "Invalid" if there's any error data in the list, and skip it.
    }
 
    }
-   // No.3
+   // No.1.4
    public void CatRank(String rankDisplay) {
-       if (rankDisplay.contains("-")) {
+       if (rankDisplay.contains("-") || rankDisplay.contains("+")) { //If rank contains "-" or "+" (eg. 404-410, 701+). Than set the Rank value to "N/A".
            setRankDisplay("N/A");
        }
    }
-
 
    //TOString
 
@@ -116,5 +119,8 @@ public class UniData {
 }
 
 
-
+    @Override
+    public int compareTo(UniData o) {
+        return this.uni.compareToIgnoreCase(o.uni); //Comparing "o" which is UniData university name with the new file university name.
+    }
 }

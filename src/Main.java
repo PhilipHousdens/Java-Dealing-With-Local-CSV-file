@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -41,6 +42,8 @@ public class Main {
         // Add the new UniData object for "Chiang Mai University"
         v.add(new UniData("2023", "571", "Chiang Mai University", "N/A" , "https://www.topuniversities.com/universities/chiang-mai-university", "Thailand", "Chiang Mai", "Asia", "https://www.topuniversities.com/sites/default/files/profiles/logos/chiang-mai-university_118_large.jpg"));
 
+        //Import Collections to use .sort(v) method. Which v is UniData Vector. This method is to sort from A-Z
+        Collections.sort(v);
         try (PrintWriter writer = new PrintWriter(new FileWriter(outFile))) {
             // Write the UniData objects to the output file
             for (UniData myData : v) {
@@ -50,7 +53,9 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // Remove rank that is not from the list (401-440)
+
+
+
 
         // Print the UniData objects
         for (UniData uniData : v) {
